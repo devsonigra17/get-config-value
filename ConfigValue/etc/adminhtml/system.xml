@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+   <system>
+      <tab id="dev_configvalue" translate="label" sortOrder="200">
+         <label>Show Config Value</label>
+      </tab>
+      <section id="config_value" translate="label" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+         <class>separator-top</class>
+         <label>Config Value</label>
+         <tab>dev_configvalue</tab>
+         <resource>Dev_ConfigValue::configuration</resource>
+         <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Configuration</label>
+            <field id="text_field" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+               <label>Full Name</label>
+            </field>
+            <field id="select_field" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+               <label>Gender</label>
+               <source_model>Dev\ConfigValue\Model\Config\Source\Select</source_model>
+            </field>
+            <field id="multiselect_field" translate="label" type="multiselect" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10" canRestore="1">
+               <label>Hobbies</label>
+               <source_model>Dev\ConfigValue\Model\Config\Source\MultiSelect</source_model>
+            </field>
+            <field id="image_field" translate="label" type="image" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+               <label>Photo</label>
+               <backend_model>Dev\ConfigValue\Model\Config\Source\Image</backend_model>
+               <base_url type="media" scope_info="1">magepow/backendimage</base_url>               <!-- Add Your Image Directory Name. It will be display pub/media/helloworld -->
+               <comment><![CDATA[Allowed file types: jpg, jpeg, gif, png, svg]]></comment>
+            </field>
+            <field id="date_field" translate="label" type="date" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+               <label>Date of Birth</label>
+               <!-- <validate>required-entry</validate> -->
+               <frontend_model>Dev\ConfigValue\Model\Config\Source\Date</frontend_model>
+            </field>
+
+            <field id="cutofftime" translate="cut off time" type="time" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+               <label>Cut off Time</label>
+               <comment>
+                  <![CDATA[If customers place order after this time the date when orders made will be counted as the following day.]]>
+               </comment>
+            </field>
+
+            <field id="dynamic_field_holidays" translate="label" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+               <label>Holidays/Exclude Days/Blackout Days</label>
+               <backend_model>Dev\ConfigValue\Block\Adminhtml\Config\Backend\ArraySerializedHolidays</backend_model>
+               <frontend_model>Dev\ConfigValue\Block\Adminhtml\DynamicFieldHolidays</frontend_model>
+            </field>
+         </group>
+      </section>
+   </system>
+</config>

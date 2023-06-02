@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <config_value>
+            <general>
+                <text_field>Dev Sonigra</text_field>
+                <select_field>1</select_field>
+                <multiselect_field>Cricket</multiselect_field>
+                <date_field>17-04-2004</date_field>
+                <image_field>default/user_icon.jpg</image_field>
+                <cutofftime>13,10,30</cutofftime>
+            </general>
+        </config_value>
+    </default>
+</config>

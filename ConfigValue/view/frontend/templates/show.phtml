@@ -1,0 +1,50 @@
+<?php
+    $helper = $this->helper('Dev\ConfigValue\Helper\Data');
+    
+    $test = $helper->getConfig();
+
+    echo "<pre>";print_r($test);exit;
+    $textValue = $test['text_field'];
+    $selectData = $test['select_field'];
+    // $image = $helper->getImage();
+    if($selectData == 1)
+    {
+        $selectValue = "Male";
+    }
+    if($selectData == 2)
+    {
+        $selectValue = "Female";
+    }
+    if($selectData == 3)
+    {
+        $selectValue = "Others";
+    }
+    $multiSelectValue = $test['multiselect_field'];
+    $image = $test['image_field'];
+    $urlMedia = $helper->getBaseUrlMedia();
+    $dateValue = $test['date_field'];
+?>
+<table border="2">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>Hobbies</th>
+            <th>Photo</th>
+            <th>Date of Birth</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><?php echo $textValue; ?></td>
+            <td><?php echo $selectValue; ?></td>
+            <td><?php echo $multiSelectValue; ?></td>
+            <td>
+                <center>
+                    <img src="<?php echo $urlMedia.'magepow/backendimage/'. $image;?>" alt="No-Image" width="200">
+                </center>
+            </td>
+            <td><?php echo date('d-F-Y', strtotime($dateValue)); ?></td>
+        </tr>
+    </tbody>
+</table>
